@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Employee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="m-4">
+    <h1 class="text-4xl font-bold text-gray-800 mb-4">Employee Details</h1>
+    <div class="flex justify-end">
+        <button class="bg-blue-300 text-white px-2 py-2 rounded-full m-4"><a href="{% url 'empdetails' %}">Add Employee +</a></button>
+    </div>
+    <table>
+        <tr>
+            <td id="emp" class="table-fixed border border-collapse border-blue-900 p-2">emp_id</td>
+            <td id="emp" class="table-fixed border border-collapse border-blue-900 p-2">emp_name</td>
+            <td id="emp" class="table-fixed border border-collapse border-blue-900 p-2">emp_email</td>
+            <td id="emp" class="table-fixed border border-collapse border-blue-900 p-2">emp_phone</td>
+            <td id="emp" class="table-fixed border border-collapse border-blue-900 p-2">emp_role</td>
+            <td id="emp" class="table-fixed border border-collapse border-blue-900 p-2">dept_id</td>
+            <td id="emp" class="table-fixed border border-collapse border-blue-900 p-2">Manager_id</td>
+        </tr>
+        <tr>
+            {% for i in emp_manage %}
+                <td class="table-fixed border border-collapse border-blue-900 p-2">{{ i.emp_id }}</td>
+                <td class="table-fixed border border-collapse border-blue-900 p-2">{{ i.emp_name }}</td>
+                <td class="table-fixed border border-collapse border-blue-900 p-2">{{ i.emp_email }}</td>
+                <td class="table-fixed border border-collapse border-blue-900 p-2">{{ i.emp_phone }}</td>
+                <td class="table-fixed border border-collapse border-blue-900 p-2">{{ i.emp_role }}</td>
+                <td class="table-fixed border border-collapse border-blue-900 p-2">{{ i.dept_id_id }}</td>
+                <td class="table-fixed border border-collapse border-blue-900 p-2">{{ i.manager_id }}</td>
+                <td>
+                    <button class="bg-blue-300 text-white p-2 mx-2 rounded-sm">
+                        <a href="{% url 'empedit' i.emp_email %}">Edit</a></button>
+                    </td>
+                <td>
+                    <button class="bg-blue-300 text-white p-2 rounded-sm">
+                        <a href="{% url 'empdelete' i.emp_email %}">Delete</a></button>
+                </td>
+                <tr></tr>
+            {% endfor %}
+        </tr>
+        <h2 id="status">{{status}}</h2>
+    <script>
+        var status = $('#status').text()
+        if(status){
+            $('#status').fadeOut(5000)
+        }
+    </script>
+</body>
+</html>

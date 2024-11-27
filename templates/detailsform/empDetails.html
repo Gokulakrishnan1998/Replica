@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+</head>
+<body>
+    <h1>Employee details form</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{emp_form.as_table}}
+        <input type="submit" value="save">
+    </form>
+    <h2>{{status}}</h2>
+</body>
+</html>

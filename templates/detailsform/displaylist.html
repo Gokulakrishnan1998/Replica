@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details list</title>
+</head>
+<body>
+    <h1>Select list</h1>
+    {% csrf_token %}
+    <a href="{% url 'empmanage' %}">Employee</a>
+    <a href="{% url 'deptmanage' %}">Department</a>
+    <a href="{% url 'empdetails' %}">Client</a>
+    <a href="{% url 'empdetails' %}">Project</a>
+
+</body>
+</html>
